@@ -1,8 +1,5 @@
 export default defineCachedEventHandler(
   async (event) => {
-    setResponseHeaders(event, {
-      "cache-control": "no-cache",
-    });
     const time = new Date();
     return time.toLocaleString();
   },
