@@ -13,5 +13,8 @@ export default defineCachedEventHandler(
       const { preview } = getQuery(event);
       return preview === "true";
     },
+    fetchOptions: {
+      cache: "no-store",
+    },
   }
 );
