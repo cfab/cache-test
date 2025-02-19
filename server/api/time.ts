@@ -1,5 +1,8 @@
 export default defineCachedEventHandler(
   async (event) => {
+    setResponseHeaders(event, {
+      "Cache-Control": "no-store",
+    });
     const time = new Date();
     return time.toLocaleString();
   },
@@ -12,9 +15,6 @@ export default defineCachedEventHandler(
     shouldBypassCache: (event) => {
       const { preview } = getQuery(event);
       return preview === "true";
-    },
-    fetchOptions: {
-      cache: "no-store",
     },
   }
 );
